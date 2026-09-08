@@ -3,7 +3,7 @@ For ITE001 course. Final project.
 
 == FUNCTIONS ==
 
-int getBalance();
+int getBalance();\n
 int getAccountType();
 int getAccountName();
 string getAccountDetails(string AccountID);\t\t RETURNS A STRING OF THE FORM ```<account id> \x1F <account name> \x1F <account type> \x1F <salt> \x1F <hashed password> \x1F <balance>```
