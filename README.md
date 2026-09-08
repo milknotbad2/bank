@@ -2,8 +2,6 @@
 For ITE001 course. Final project.
 
 == FUNCTIONS ==
-1. createAccount( args );
-2. deleteAccount( args );
-3. withdraw( args );
-4. deposit( args );
-5. ...
+
+string getAccountDetails(string AccountID);        <-- RETURNS A STRING OF THE FORM ```<account id> \x1F <account name> \x1F <account type> \x1F <salt> \x1F <hashed password> \x1F <balance>```
+bool isPasswordCorrect(string inputPassword); 
