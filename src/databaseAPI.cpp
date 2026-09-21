@@ -72,7 +72,7 @@ string getAccountDetails(string accountID)
 	{
 		stringstream sstream(line);
 		
-		if (getline(sstream, id, '\x1F'))
+		if (getline(sstream, id, DELIMETER))
 		{
 			if (id == accountID)
 			{
