@@ -1,3 +1,6 @@
+#include <iostream>
+#include <fstream>
+
 bool isDatabaseEmpty(ifstream &database)
 {
 	string firstLine;
@@ -20,7 +23,10 @@ void displayDatabaseIsEmpty()
 	cout << "========================\n";
 }
 
-void login()
+/*
+NOT DONE YET
+*/
+void runLoginDisplay()
 {
 	ifstream database("database.txt");
 	
@@ -32,7 +38,5 @@ void login()
 	}
 	
 	string userID, password;
-	
-	
 	
 }
