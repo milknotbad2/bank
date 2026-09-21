@@ -1,17 +1,6 @@
 #include <iostream>
 #include <fstream>
 
-bool isDatabaseEmpty(ifstream &database)
-{
-	string firstLine;
-	
-	if (!getline(database, firstLine))
-	{
-		return true;
-	}
-	return false;
-}
-
 void displayDatabaseIsEmpty()
 {
 	cout << "========================\n";
