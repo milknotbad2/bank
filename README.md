@@ -1,12 +1,28 @@
 # s-ite001-simple-banking-system
 For ITE001 course. Final project.
 
-== FUNCTIONS ==
+== DB API FUNCTIONS ==
 
 ```cpp
-int getBalance();
-int getAccountType();
-int getAccountName();
-string getAccountDetails(string AccountID);
-bool isPasswordCorrect(string inputPassword); 
+unordered_map<string, string> parseAccountDetails(string accountID);
+int getAccountsCount();
+string getAccountDetails(string AccountID); 
+```
+
+== SECURITY RELATED STUFF ==
+
+```cpp
+string createPassword(string salt, string password);
+bool isPasswordCorrect(string passwordToCheck, string salt, string hashedPassword);
+string generateSalt();
+```
+
+== UNFINISHED (TO-DO) ==
+
+```cpp
+void createDummyDB();
+string generateID();
+void createAccount();
+void runMainDisplay();
+void runLogin Display();
 ```
