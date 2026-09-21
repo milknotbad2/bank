@@ -5,9 +5,11 @@
 
 #define DELIMITER '\x1F'
 
+const string databasePath = "../database/database.txt";
+
 void createDummyDB()
 {
-	ofstream database("database.txt");
+	ofstream database(databasePath);
 	
 	string databaseMatrix[6][6] = {
 		// {"a7293", "Cornelius", "Time Deposit", "3127b16071221b4d6c6b7d08f649b635c6871a90ad1393b6f383d9b2159236fa9d09db9a4681dba5a61da506193108397e7febc8b57c7fc263f1fc3a36467a56", string(""), "350"},
@@ -59,7 +61,7 @@ account was found with the accountID.
 */
 string getAccountDetails(string accountID)
 {
-	ifstream database("database.txt");
+	ifstream database(databasePath);
 	string line;
 	string id;
 	
@@ -149,7 +151,7 @@ unordered_map<string, string> parseAccountDetails(string accountID)
 
 int getAccountsCount()
 {
-	ifstream database("database.txt");
+	ifstream database(databasePath);
 	string account;
 	int counter = 0;
 	
