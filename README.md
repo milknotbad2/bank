@@ -24,5 +24,5 @@ void createDummyDB();
 string generateID();
 void createAccount();
 void runMainDisplay();
-void runLogin Display();
+void runLoginDisplay();
 ```
