@@ -23,6 +23,7 @@ string generateSalt();
 void createDummyDB();
 string generateID();
 void createAccount();
+ofstream createTempDatabase();
 void runMainDisplay();
 void runLoginDisplay();
 ```
