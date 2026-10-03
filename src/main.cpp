@@ -21,18 +21,11 @@ int main()
 
 void runMainDisplay()
 {
-	int response;
+	string response;
 	
 	while (RUNNING)
 	{
 		showMainScreen();
-		
-		if (!(cin >> response) || response < 1 || response > 3)
-		{
-			cin.clear();
-			cin.ignore(200, '\n');
-			continue;
-		}
 		
 		switch (response)
 		{
@@ -46,6 +39,9 @@ void runMainDisplay()
 				
 			case 3:
 				return;
+			
+			default:
+				// SHOW INVALID INPUT SCREEN
 		}
 	}
 }
