@@ -26,6 +26,8 @@ void runMainDisplay()
 	while (RUNNING)
 	{
 		showMainScreen();
+
+		sin >> response;
 		
 		switch (response)
 		{
