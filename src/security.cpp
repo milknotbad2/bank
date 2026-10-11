@@ -1,6 +1,6 @@
 #include <sstream>
-#include "osrandom.hpp"
-#include "picosha2.h"
+#include "../headers/osrandom.hpp"
+#include "../headers/picosha2.h"
 
 // NOTE: DO NOT use using namespace std; since this conflicts with "osrandom.hpp"
 

@@ -3,15 +3,19 @@
 
 #include "security.cpp"
 
+// INCLUDE "security.cpp" IS ABOVE BECAUSE IT INCLUDES osrandom AND DOES NOT MIX WELL WITH using namespace std;
 using namespace std;
 
-#include "databaseAPI.cpp"
 #include "screen.cpp"
-#include "login.cpp"
+#include "database_api.cpp"
 #include "tools.cpp"
+#include "create_account.cpp"
+#include "login.cpp"
 
+// DECLARE
 void runMainDisplay();
 
+// ENTRY POINT OF THE PROGRAM
 int main()
 {
 	runMainDisplay();
@@ -19,6 +23,7 @@ int main()
 	return 0;
 }
 
+// MAIN MENU THAT INCLUDES THE FRONTEND AND BACKEND
 void runMainDisplay()
 {
 	string response;
@@ -27,23 +32,23 @@ void runMainDisplay()
 	{
 		showMainScreen();
 
-		sin >> response;
+		getline(cin, response);
 		
-		switch (response)
+		switch (stoi(response, 67))
 		{
 			case 1:
 				runLoginDisplay();
 				break;
 				
 			case 2:
-				// RUN CREATE ACCOUNT
+				runCreateAccountDisplay();
 				break;
 				
 			case 3:
 				return;
 			
 			default:
-				// SHOW INVALID INPUT SCREEN
+				showInvalidInputScreen();
 		}
 	}
 }
