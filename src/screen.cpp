@@ -91,7 +91,7 @@ void showAccountAddedScreen(string accountIDAdded)
 	cout << "|                             |\n";
 	cout << "| Account Succesfully Created!|\n";
 	cout << "|                             |\n";
-	cout << "|        PIN: " << accountID << "           |\n";
+	cout << "|        PIN: " << accountIDAdded << "           |\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
