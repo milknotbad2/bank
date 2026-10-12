@@ -123,5 +123,5 @@ void runCreateAccountDisplay()
 		return;
 	}
 	
-	showAccountAddedScreen();
+	showAccountAddedScreen(accountID);
 }
