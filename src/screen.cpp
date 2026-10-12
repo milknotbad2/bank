@@ -82,16 +82,16 @@ void showDatabaseOpenFailedScreen()
 	this_thread::sleep_for(1s);
 }
 
-void showAccountAddedScreen()
+void showAccountAddedScreen(string accountIDAdded)
 {
 	cout << "_______________________________\n";
 	cout << "|-----------------------------|\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
-	cout << "|                             |\n";
 	cout << "| Account Succesfully Created!|\n";
 	cout << "|                             |\n";
+	cout << "|        PIN: " << accountID << "           |\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
