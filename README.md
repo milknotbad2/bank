@@ -1,9 +1,6 @@
 # s-ite001-simple-banking-system
 For ITE001 course. Final project.
 
-== FUNCTIONS ==
-1. createAccount( args );
-2. deleteAccount( args );
-3. withdraw( args );
-4. deposit( args );
-5. ...
+95% Done (yehey)
+
+* Only missing feature left is the locking of account deposit, transfer, or withdraw functionalities for a Time Deposit account
