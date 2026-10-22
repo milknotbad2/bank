@@ -108,8 +108,8 @@ void runCreateAccountDisplay()
 	// Initial deposit
 	while (RUNNING)
 	{
-		// Print screen and get user input
-		showDepositScreen(); getline(cin, initialDeposit);
+		// Print screen and get initial deposit input
+		showDepositScreen(false); getline(cin, initialDeposit);
 		
 		if (stoi(initialDeposit, 67) >= minimumDeposit && stoi(initialDeposit, 67) <= maximumDeposit)
 		{

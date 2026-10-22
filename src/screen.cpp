@@ -144,8 +144,29 @@ void showPasswordCreationScreen()
 	cout << ">> ";
 }
 
-void showDepositScreen()
+void showDepositScreen(bool isTimeDeposit)
 {
+	if (isTimeDeposit)
+	{
+		cout << "_______________________________\n";
+		cout << "|-----------------------------|\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|     Cannot Deposit in a     |\n";
+		cout << "|    Time Deposit Account!    |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|-----------------------------|\n";
+		cout << "|_____________________________|\n\n";
+		
+		this_thread::sleep_for(2s);
+		return;
+	}
+	
 	cout << "_______________________________\n";
 	cout << "|-----------------------------|\n";
 	cout << "| Insert Deposit:             |\n";
@@ -437,8 +458,29 @@ void showAccountMenuScreen()
 	cout << ">> ";
 }
 
-void showTransferScreen()
+void showTransferScreen(bool isTimeDeposit)
 {
+	if (isTimeDeposit)
+	{
+		cout << "_______________________________\n";
+		cout << "|-----------------------------|\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|    Cannot Transfer in a     |\n";
+		cout << "|    Time Deposit Account!    |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|-----------------------------|\n";
+		cout << "|_____________________________|\n\n";
+		
+		this_thread::sleep_for(2s);
+		return;
+	}
+	
 	cout << "_______________________________\n";
 	cout << "|-----------------------------|\n";
 	cout << "| Transfer Transaction:       |\n";

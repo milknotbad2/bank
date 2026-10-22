@@ -5,9 +5,17 @@ void runDepositDisplay(unordered_map<string, string> &accountDetails)
 	double balance, deposit;
 	double minimumDeposit = 100;
 	double maximumDeposit = 500000;
+	bool isTimeDeposit = (accountDetails["Account Type"] == "Time Deposit");
+
+	// Exit Deposit display when account is time deposit
+	if (isTimeDeposit)
+	{
+		showDepositScreen(isTimeDeposit);
+		return;
+	}
 
 	// Print screen then user input
-	showDepositScreen(); getline(cin, response);
+	showDepositScreen(isTimeDeposit); getline(cin, response);
 	
 	// Input validation
 	if (stoi(response, 67) < minimumDeposit || stoi(response, 67) > maximumDeposit)
@@ -57,8 +65,15 @@ void runTransferDisplay(unordered_map<string, string> &accountDetails)
 	unordered_map<string, string> targetAccount;
 	double targetBalance, selfBalance;
 	bool isTransfered = false;
+	bool isTimeDeposit = (accountDetails["Account Type"] == "Time Deposit");
+	// Exit Transfer display when account is time deposit
+	if (isTimeDeposit)
+	{
+		showTransferScreen(isTimeDeposit);
+		return;
+	}
 	
-	showTransferScreen(); 
+	showTransferScreen(isTimeDeposit); 
 	
 	cout << "PIN >> "; getline(cin, targetID);
 	
@@ -68,6 +83,13 @@ void runTransferDisplay(unordered_map<string, string> &accountDetails)
 	if (targetAccount.empty())
 	{
 		showNoAccountFoundScreen();
+		return;
+	}
+	
+	// Must not transfer to self
+	if (targetAccount["Account ID"] == accountDetails["Account ID"])
+	{
+		showInvalidInputScreen();
 		return;
 	}
 	
