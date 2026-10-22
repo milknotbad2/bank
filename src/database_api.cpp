@@ -101,7 +101,8 @@ unordered_map<string, string> parseAccountDetails(const string &accountID)
 		"Interest Rate",
 		"Accrued Interest",
 		"Last Accrual Date",
-		"Last Compounding Date"
+		"Last Compounding Date",
+		"Creation Date"
 	};
 	int counter = 0;
 	
@@ -194,7 +195,8 @@ bool addAccount(const string &accountID,
 				const string &interestRate,
 				const string &accruedInterest,
 				const string &lastAccrualDate,
-				const string &lastCompoundingDate)
+				const string &lastCompoundingDate,
+				const string &creationDate)
 {
 	try
 	{
@@ -222,7 +224,8 @@ bool addAccount(const string &accountID,
 		 << interestRate << DELIMITER
 		 << accruedInterest << DELIMITER
 		 << lastAccrualDate << DELIMITER
-		 << lastCompoundingDate << '\n';
+		 << lastCompoundingDate << DELIMITER
+		 << creationDate << '\n';
 		 
 	temp.close();
 	
@@ -291,5 +294,6 @@ bool updateAccountDetails(const unordered_map<string, string> &accountDetails)
 					  accountDetails.at("Interest Rate"),
 					  accountDetails.at("Accrued Interest"),
 					  accountDetails.at("Last Accrual Date"),
-					  accountDetails.at("Last Compounding Date"));
+					  accountDetails.at("Last Compounding Date"),
+					  accountDetails.at("Creation Date"));
 }

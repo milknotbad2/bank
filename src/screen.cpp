@@ -331,8 +331,8 @@ void showAccountDetailsScreen(const unordered_map<string, string> &accountDetail
 	cout << "|                             |\n";
 	cout << "| Account ID (PIN):     " << accountDetails.at("Account ID") << " |\n";
 	cout << "| Account Type: " << string(maxSpaceAccountType - accountDetails.at("Account Type").length(), ' ') << accountDetails.at("Account Type") << " |\n";
+	cout << "| Created on:      " << accountDetails.at("Creation Date") << " |\n";
 	cout << "| Balance: " << string(maxSpaceBalance - roundedBalance.length(), ' ') << roundedBalance;
-	cout << "|                             |\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
 	cout << "|-----------------------------|\n";

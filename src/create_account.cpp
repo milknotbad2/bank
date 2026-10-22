@@ -35,7 +35,7 @@ void runCreateAccountDisplay()
 {
 	// Initialize account attributes
 	string response;
-	string accountID, accountType, initialDeposit, interestRate, hashedPassword, salt, lastAccrualDate, lastCompoundingDate, accruedInterest;
+	string accountID, accountType, initialDeposit, interestRate, hashedPassword, salt, lastAccrualDate, lastCompoundingDate, creationDate, accruedInterest;
 	accruedInterest = "0";
 	
 	// Default interest rate and deposit min max
@@ -122,6 +122,7 @@ void runCreateAccountDisplay()
 	// Set dates
 	lastAccrualDate = getToday();
 	lastCompoundingDate = getToday();
+	creationDate = getToday();
 	
 	// Create AND check if acccount is created successfully
 	bool isAccountAdded = addAccount(
@@ -133,7 +134,8 @@ void runCreateAccountDisplay()
 		interestRate,
 		accruedInterest,
 		lastAccrualDate,
-		lastCompoundingDate);
+		lastCompoundingDate,
+		creationDate);
 		
 	if (!isAccountAdded)
 	{
