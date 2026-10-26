@@ -301,6 +301,32 @@ void showWithdrawScreen(const string maturityDate, const unordered_map<string, s
 		
 		return;
 	}
+	
+	sstream << "P " << fixed << setprecision(2) << stod(accountDetails.at("Balance")) << " |\n";
+		
+	roundedBalance = sstream.str();
+	
+	if (roundedBalance.length() > maxSpaceBalance)
+	{
+		roundedBalance = ">P99999999999.99 |\n";
+	}
+	
+	cout << "_______________________________\n";
+	cout << "|-----------------------------|\n";
+	cout << "|                             |\n";
+	cout << "|                             |\n";
+	cout << "| 	Time Deposit has matured!  |\n";
+	cout << "|                             |\n";
+	cout << "|                             |\n";
+	cout << "|                             |\n";
+	cout << "| Date Today:      " << getToday() << " |\n";
+	cout << "| Balance: " << string(maxSpaceBalance - roundedBalance.length(), ' ') << roundedBalance;
+	cout << "|                             |\n";
+	cout << "| Now withdrawing...          |\n";
+	cout << "|-----------------------------|\n";
+	cout << "|_____________________________|\n\n";
+
+	this_thread::sleep_for(5s);
 }
 
 void showWithdrawTransactionScreen(const string &withdraw, const string &newBalance, const string &accountID)

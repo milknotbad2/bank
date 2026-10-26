@@ -50,6 +50,8 @@ void runWithdrawDisplay(unordered_map<string, string> &accountDetails)
 		
 		showWithdrawScreen(maturityDate, accountDetails);
 		
+		showWithdrawTransactionScreen(accountDetails["Balance"], "0.00", accountDetails["Account ID"]);
+		
 		return;
 	}
 	
@@ -111,6 +113,13 @@ void runTransferDisplay(unordered_map<string, string> &accountDetails)
 	if (targetAccount["Account ID"] == accountDetails["Account ID"])
 	{
 		showInvalidInputScreen();
+		return;
+	}
+	
+	// Must not transfer to a time deposit account
+	if (targetAccount["Account Type"] == "Time Deposit")
+	{
+		showTransferScreen(true);
 		return;
 	}
 	
