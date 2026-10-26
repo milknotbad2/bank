@@ -1,6 +1,8 @@
 # s-ite001-simple-banking-system
 For ITE001 course. Final project.
 
-95% Done (yehey)
+Compilation done using g++ with the command:
 
-* Only missing feature left is the locking of account deposit, transfer, or withdraw functionalities for a Time Deposit account
+``cpp
+g++ -Wall -std=c++20 src/main.cpp -o CBank.exe -static
+``
