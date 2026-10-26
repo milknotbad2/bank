@@ -1,7 +1,7 @@
 # s-ite001-simple-banking-system
 For ITE001 course. Final project.
 
-Compilation done using g++ with the command:
+Compilation done using g++ with the command (root directory must be in /bank):
 
 ```cpp
 g++ -Wall -std=c++20 src/main.cpp -o CBank.exe -static
