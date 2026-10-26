@@ -124,7 +124,7 @@ int getAccountsCount(const string &path)
 	// Check if the database.txt was succesfully opened
 	if (!database)
 	{
-		showDatabaseOpenFailedScreen();
+		return -1;
 	}
 	
 	while (getline(database, account))

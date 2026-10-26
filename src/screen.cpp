@@ -34,7 +34,7 @@ void showAccountTypeSelectScreen()
 	cout << "|                             |\n";
 	cout << "|                             |\n";
 	cout << "| [1] Savings                 |\n";
-	cout << "| [2] Time Deposit            |\n";
+	cout << "| [2] Time Deposit (3 years)  |\n";
 	cout << "| [3] Cancel                  |\n";
 	cout << "|                             |\n";
 	cout << "|                             |\n";
@@ -102,7 +102,7 @@ void showAccountAddedScreen(const string &accountID)
 	cout << "|-----------------------------|\n";
 	cout << "|_____________________________|\n\n";
 	
-	this_thread::sleep_for(5s);
+	this_thread::sleep_for(3s);
 }
 
 void showAccountNotAddedScreen()
@@ -231,26 +231,76 @@ void showDepositTransactionScreen(const string &deposit, const string &newBalanc
 	cout << "|-----------------------------|\n";
 	cout << "|_____________________________|\n\n";
 	
-	this_thread::sleep_for(10s);
+	this_thread::sleep_for(5s);
 }
 
-void showWithdrawScreen()
+void showWithdrawScreen(const string maturityDate, const unordered_map<string, string> &accountDetails)
 {
-	cout << "_______________________________\n";
-	cout << "|-----------------------------|\n";
-	cout << "| Insert Withdrawal:          |\n";
-	cout << "|                             |\n";
-	cout << "|                             |\n";
-	cout << "|                             |\n";
-	cout << "|                             |\n";
-	cout << "| Withdraw:                   |\n";
-	cout << "|                             |\n";
-	cout << "|                             |\n";
-	cout << "|                             |\n";
-	cout << "|                             |\n";
-	cout << "|-----------------------------|\n";
-	cout << "|_____________________________|\n\n";
-	cout << ">> ";
+	if (accountDetails.at("Account Type") != "Time Deposit")
+	{
+		cout << "_______________________________\n";
+		cout << "|-----------------------------|\n";
+		cout << "| Insert Withdrawal:          |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "| Withdraw:                   |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|-----------------------------|\n";
+		cout << "|_____________________________|\n\n";
+		cout << ">> ";
+			
+		return;
+	}
+	
+	stringstream sstream;
+	string roundedBalance;
+	const int maxSpaceBalance = 20;
+	
+	if (getToday() != maturityDate)
+	{
+		double expectedBalance = stod(accountDetails.at("Balance"));
+		double rate = stod(accountDetails.at("Interest Rate"));
+		int timespan = dateDifference(maturityDate, accountDetails.at("Creation Date"));
+		
+		// Compute expected gains
+		for (int i = 0; i <  timespan / FULL_MONTH; i++)
+		{
+			expectedBalance += expectedBalance * rate * (FULL_MONTH / (double)FULL_YEAR);
+		}
+		expectedBalance += expectedBalance * rate * ((timespan % FULL_MONTH) / (double)FULL_YEAR);
+		
+		sstream << "P " << fixed << setprecision(2) << expectedBalance << " |\n";
+		
+		roundedBalance = sstream.str();
+		
+		if (roundedBalance.length() > maxSpaceBalance)
+		{
+			roundedBalance = ">P99999999999.99 |\n";
+		}
+		cout << "_______________________________\n";
+		cout << "|-----------------------------|\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "|     Time Deposit has not    |\n";
+		cout << "|         matured yet...      |\n";
+		cout << "|                             |\n";
+		cout << "|                             |\n";
+		cout << "| Date Today:      " << getToday() << " |\n";
+		cout << "| Maturation Date: " << maturityDate << " |\n";
+		cout << "| Expected: " << string(maxSpaceBalance - roundedBalance.length(), ' ') << roundedBalance;
+		cout << "|                             |\n";
+		cout << "|-----------------------------|\n";
+		cout << "|_____________________________|\n\n";
+
+		this_thread::sleep_for(5s);
+		
+		return;
+	}
 }
 
 void showWithdrawTransactionScreen(const string &withdraw, const string &newBalance, const string &accountID)
@@ -300,7 +350,7 @@ void showWithdrawTransactionScreen(const string &withdraw, const string &newBala
 	cout << "|-----------------------------|\n";
 	cout << "|_____________________________|\n\n";
 	
-	this_thread::sleep_for(10s);
+	this_thread::sleep_for(5s);
 }
 
 void showAccountDetailsScreen(const unordered_map<string, string> &accountDetails)
@@ -338,7 +388,7 @@ void showAccountDetailsScreen(const unordered_map<string, string> &accountDetail
 	cout << "|-----------------------------|\n";
 	cout << "|_____________________________|\n\n";
 
-	this_thread::sleep_for(10s);
+	this_thread::sleep_for(6s);
 }
 
 void showNoAccountFoundScreen()

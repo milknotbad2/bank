@@ -8,9 +8,16 @@ void runLoginDisplay()
     unordered_map<string, string> accountDetails;
     
     // RETURN TO MAIN MENU IF DATABASE IS EMPTY
-    if (!getAccountsCount(databasePath)) 
+    if (getAccountsCount(databasePath) == 0) 
     {
         showDatabaseEmptyScreen();
+        return;
+    }
+
+    // RETURN TO MAIN MENU IF DATABASE FAILED TO OPEN
+    if (getAccountsCount(databasePath) == -1) 
+    {
+        showDatabaseOpenFailedScreen();
         return;
     }
     

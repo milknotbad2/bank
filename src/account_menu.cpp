@@ -38,9 +38,30 @@ void runWithdrawDisplay(unordered_map<string, string> &accountDetails)
 	// Initialize
 	string response;
 	double balance, withdraw;
+	string maturityDate = addDays(accountDetails["Creation Date"], 3 * FULL_YEAR);
+	bool isMatured = getToday() == maturityDate;
+	bool isTimeDeposit = (accountDetails["Account Type"] == "Time Deposit");
 
+	// Withdraw for the matured interest
+	if (isMatured)
+	{
+		// Add any remaining accrued interest to the balance
+		compoundBalance(accountDetails);
+		
+		showWithdrawScreen(maturityDate, accountDetails);
+		
+		return;
+	}
+	
+	if (isTimeDeposit)
+	{
+		showWithdrawScreen(maturityDate, accountDetails);
+		
+		return;
+	}
+	
 	// Print screen then user input
-	showWithdrawScreen(); getline(cin, response);
+	showWithdrawScreen(maturityDate, accountDetails); getline(cin, response);
 	
 	// Input validation
 	if (stoi(response, 67) <= 0 || (stod(accountDetails["Balance"]) - stod(response) < 0))

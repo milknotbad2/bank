@@ -4,6 +4,7 @@
 #include <chrono>
 
 #define FULL_MONTH 30
+#define FULL_YEAR 360
 
 using namespace std::chrono;
 
@@ -51,9 +52,9 @@ int dateDifference(string date, string pastDate)
 	};
 
 	sys_days dateDays = dateValue;
-	sys_days dateDays2 = pastDateValue;
+	sys_days pastDateDays = pastDateValue;
 
-    days difference = dateDays2 - dateDays;
+    days difference = dateDays - pastDateDays;
 
     return difference.count();
  }
@@ -96,7 +97,7 @@ void updateAccrual(unordered_map<string, string> &accountDetails, int days)
 	balance = stod(accountDetails["Balance"]);
 	
 	// Catch up accrual
-	accruedInterest += balance * rate * (days/360);
+	accruedInterest += balance * rate * (days / FULL_YEAR);
 	
 	// Store it back
 	accountDetails["Accrued Interest"] = to_string(accruedInterest);
