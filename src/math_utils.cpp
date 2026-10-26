@@ -97,7 +97,7 @@ void updateAccrual(unordered_map<string, string> &accountDetails, int days)
 	balance = stod(accountDetails["Balance"]);
 	
 	// Catch up accrual
-	accruedInterest += balance * rate * (days / FULL_YEAR);
+	accruedInterest += balance * rate * ((double)days / FULL_YEAR);
 	
 	// Store it back
 	accountDetails["Accrued Interest"] = to_string(accruedInterest);

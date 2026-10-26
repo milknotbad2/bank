@@ -1,5 +1,4 @@
 #define RUNNING true
-// #define CLEAR_SCREEN() cout << "\x1b[2J\x1b[H"
 
 #include "security.cpp"
 

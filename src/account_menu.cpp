@@ -39,7 +39,7 @@ void runWithdrawDisplay(unordered_map<string, string> &accountDetails)
 	string response;
 	double balance, withdraw;
 	string maturityDate = addDays(accountDetails["Creation Date"], 3 * FULL_YEAR);
-	bool isMatured = getToday() == maturityDate;
+	bool isMatured = getToday() >= maturityDate;
 	bool isTimeDeposit = (accountDetails["Account Type"] == "Time Deposit");
 
 	// Withdraw for the matured interest
@@ -51,6 +51,7 @@ void runWithdrawDisplay(unordered_map<string, string> &accountDetails)
 		showWithdrawScreen(maturityDate, accountDetails);
 		
 		showWithdrawTransactionScreen(accountDetails["Balance"], "0.00", accountDetails["Account ID"]);
+		accountDetails["Balance"] = "0";
 		
 		return;
 	}
